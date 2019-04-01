@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psu.lp.scoreboard.ScoreboardController">
+    <children>
+        <BorderPane layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+            <center>
+                <VBox style="-fx-background-color: #000;">
+                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="280.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER">
+                        <children>
+                            <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="125.0" text="0" textAlignment="CENTER" textFill="RED">
+                                <font>
+                                    <Font size="72.0" />
+                                </font>
+                        <effect>
+                           <Glow level="1.0" />
+                        </effect>
+                            </Label>
+                            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="30.0" text=":" textAlignment="CENTER" textFill="RED">
+                                <font>
+                                    <Font size="72.0" />
+                                </font>
+                        <effect>
+                           <Glow level="1.0" />
+                        </effect>
+                            </Label>
+                            <Label layoutX="234.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="125.0" text="0" textAlignment="CENTER" textFill="RED">
+                                <font>
+                                    <Font size="72.0" />
+                                </font>
+                        <effect>
+                           <Glow level="1.0" />
+                        </effect>
+                            </Label>
+                        </children>
+                    </HBox>
+               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="280.0" text="Период: 1" textAlignment="CENTER" textFill="WHITE">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+                  <effect>
+                     <Glow level="1.0" />
+                  </effect>
+               </Label>
+                </VBox>
+            </center>
+            <left>
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="160.0" style="-fx-background-color: #720404;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="160.0" prefWidth="160.0" text="40" textFill="WHITE">
+                     <effect>
+                        <Glow level="1.0" />
+                     </effect>
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            </left>
+            <right>
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="160.0" style="-fx-background-color: #052468;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="160.0" text="50" textFill="WHITE">
+                     <effect>
+                        <Glow level="1.0" />
+                     </effect>
+                     <font>
+                        <Font size="96.0" />
+                     </font></Label>
+               </children></Pane>
+            </right>
+            <top>
+                <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" text="1... vs 2..." textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                     <effect>
+                        <Glow level="1.0" />
+                     </effect>
+                        </Label>
+                    </children>
+                </Pane>
+            </top>
+         <bottom>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER" />
+         </bottom>
+        </BorderPane>
+    </children>
+</AnchorPane>
