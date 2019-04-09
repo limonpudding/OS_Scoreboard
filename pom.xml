@@ -18,7 +18,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>psu.lp.scoreboard.Scoreboard</mainClass>
+                            <mainClass>psu.lp.scoreboard.ScoreboardClient</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -44,7 +44,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>psu.lp.scoreboard.Scoreboard</mainClass>
+                    <mainClass>psu.lp.scoreboard.ScoreboardClient</mainClass>
                 </configuration>
             </plugin>
 
