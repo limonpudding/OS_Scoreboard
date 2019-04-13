@@ -1,4 +1,4 @@
-package psu.lp.scoreboard;
+package psu.lp.scoreboard.server;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;

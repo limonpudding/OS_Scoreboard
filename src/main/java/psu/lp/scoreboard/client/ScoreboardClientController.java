@@ -1,4 +1,4 @@
-package psu.lp.scoreboard;
+package psu.lp.scoreboard.client;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;

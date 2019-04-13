@@ -1,4 +1,4 @@
-package psu.lp.scoreboard;
+package psu.lp.scoreboard.server;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import psu.lp.scoreboard.client.ActionListener;
+import psu.lp.scoreboard.util.ScoreboardAction;
+import psu.lp.scoreboard.util.ScoreboardActionType;
 
 public class ScoreboardServer extends Application {
     public static Stage scoreboardServerStage;
@@ -24,6 +27,10 @@ public class ScoreboardServer extends Application {
 
 
     public static void main(String[] args) {
+        ScoreboardAction action = new ScoreboardAction();
+        action.setActionType(ScoreboardActionType.INCREASE_SCORE);
+        action.setIntValue(10);
+        ActionSender.getInstance().sendScoreboardAction(action);
         launch(args);
     }
 }

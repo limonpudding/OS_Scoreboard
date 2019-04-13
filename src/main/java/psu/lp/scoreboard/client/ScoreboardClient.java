@@ -1,4 +1,4 @@
-package psu.lp.scoreboard;
+package psu.lp.scoreboard.client;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.net.SocketException;
 
 public class ScoreboardClient extends Application {
     public static Stage scoreboardStage;
@@ -23,7 +25,9 @@ public class ScoreboardClient extends Application {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SocketException {
+        Thread actionListener = new Thread(new ActionListener());
+        actionListener.start();
         launch(args);
     }
 }
