@@ -26,7 +26,8 @@ public class ActionSender {
     private ActionSender() {
         try {
             initIP();
-            socket = new DatagramSocket(GlobalConstants.APPLICATION_PORT-1);
+            socket = new DatagramSocket();
+            socket.setBroadcast(true);
         } catch (SocketException e) {
             e.printStackTrace();
             System.out.println("Ошибка создания широковещательного сокета!");

@@ -21,7 +21,7 @@ public class ActionListener implements Runnable {
         ObjectInputStream is;// = new ObjectInputStream(new BufferedInputStream(byteStream));
 
         try {
-            socket = new DatagramSocket();
+            socket = new DatagramSocket(GlobalConstants.APPLICATION_PORT);
             while (true) {
                 recvBuf = new byte[6400];
                 packet = new DatagramPacket(recvBuf, recvBuf.length);
