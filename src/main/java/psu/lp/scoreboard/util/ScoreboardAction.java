@@ -6,9 +6,13 @@ public class ScoreboardAction implements Serializable {
 
     private ScoreboardActionType actionType;
 
-    private int intValue;
+    private int intValue1;
 
-    private String stringValue;
+    private int intValue2;
+
+    private String stringValue1;
+
+    private String stringValue2;
 
     public ScoreboardAction() {
 
@@ -22,19 +26,35 @@ public class ScoreboardAction implements Serializable {
         this.actionType = actionType;
     }
 
-    public int getIntValue() {
-        return intValue;
+    public int getIntValue1() {
+        return intValue1;
     }
 
-    public void setIntValue(int intValue) {
-        this.intValue = intValue;
+    public void setIntValue1(int intValue1) {
+        this.intValue1 = intValue1;
     }
 
-    public String getStringValue() {
-        return stringValue;
+    public int getIntValue2() {
+        return intValue2;
     }
 
-    public void setStringValue(String stringValue) {
-        this.stringValue = stringValue;
+    public void setIntValue2(int intValue2) {
+        this.intValue2 = intValue2;
+    }
+
+    public String getStringValue1() {
+        return stringValue1;
+    }
+
+    public void setStringValue1(String stringValue1) {
+        this.stringValue1 = stringValue1;
+    }
+
+    public String getStringValue2() {
+        return stringValue2;
+    }
+
+    public void setStringValue2(String stringValue2) {
+        this.stringValue2 = stringValue2;
     }
 }

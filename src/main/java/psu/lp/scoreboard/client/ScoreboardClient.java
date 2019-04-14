@@ -26,8 +26,9 @@ public class ScoreboardClient extends Application {
 
 
     public static void main(String[] args) throws SocketException {
-        Thread actionListener = new Thread(new ActionListener());
+        Thread actionListener = new Thread(ActionListener.getInstance());
         actionListener.start();
         launch(args);
+
     }
 }

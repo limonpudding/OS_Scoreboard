@@ -23,6 +23,7 @@ public class ActionSender {
         }
         return instance;
     }
+
     private ActionSender() {
         try {
             initIP();

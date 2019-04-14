@@ -32,13 +32,10 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-            <Button fx:id="selectTeamNamesButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="210.0" text="Применить имена команд">
+            <Button fx:id="selectTeamNamesButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectTeamNames" prefWidth="210.0" text="Применить имена команд">
                <VBox.margin>
                   <Insets left="195.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="15.0" />
-               </font></Button>
+               </VBox.margin></Button>
             <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="Текущий счёт">
                <VBox.margin>
                   <Insets top="30.0" />
@@ -55,20 +52,14 @@
                </font></Label>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="600.0">
                <children>
-                  <Button fx:id="encreaseTeam1ScoreButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="215.0" text="Добавить очко команде 1">
+                  <Button fx:id="encreaseTeam1ScoreButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#encreaseTeam1Score" prefWidth="215.0" text="Добавить очко команде 1">
                      <HBox.margin>
                         <Insets left="45.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font size="15.0" />
-                     </font></Button>
-                  <Button fx:id="encreaseTeam1ScoreButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="215.0" text="Добавить очко команде 2">
+                     </HBox.margin></Button>
+                  <Button fx:id="encreaseTeam2ScoreButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#encreaseTeam2Score" prefWidth="215.0" text="Добавить очко команде 2">
                      <HBox.margin>
                         <Insets left="80.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font size="15.0" />
-                     </font></Button>
+                     </HBox.margin></Button>
                </children>
             </HBox>
             <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="Тайм:">

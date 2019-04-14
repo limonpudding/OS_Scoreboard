@@ -6,7 +6,7 @@ public enum ScoreboardActionType {
     TIMER_START("Запустить таймер."),
     TIMER_PAUSE("Поставить таймер на паузу."),
     TIMER_STOP("Остановить таймер."),
-    SET_TEAM_NAME("Установить имя команды."),
+    SET_TEAM_NAMES("Установить имена командам."),
     INCREASE_SCORE("Увеличить счёт.");
 
     private String info;

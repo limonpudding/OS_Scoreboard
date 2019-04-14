@@ -11,6 +11,7 @@ import psu.lp.scoreboard.util.ScoreboardAction;
 import psu.lp.scoreboard.util.ScoreboardActionType;
 
 public class ScoreboardServer extends Application {
+
     public static Stage scoreboardServerStage;
 
     @Override
@@ -27,10 +28,11 @@ public class ScoreboardServer extends Application {
 
 
     public static void main(String[] args) {
-        ScoreboardAction action = new ScoreboardAction();
-        action.setActionType(ScoreboardActionType.INCREASE_SCORE);
-        action.setIntValue(10);
-        ActionSender.getInstance().sendScoreboardAction(action);
+//        ScoreboardAction action = new ScoreboardAction();
+//        action.setActionType(ScoreboardActionType.INCREASE_SCORE);
+//        action.setIntValue1(10);
+//        ActionSender.getInstance().sendScoreboardAction(action);
+        //ActionListener actionListener = new ActionListener()
         launch(args);
     }
 }

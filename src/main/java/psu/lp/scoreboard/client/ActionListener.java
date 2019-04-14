@@ -3,15 +3,27 @@ package psu.lp.scoreboard.client;
 import psu.lp.scoreboard.util.GlobalConstants;
 import psu.lp.scoreboard.util.ScoreboardAction;
 
-import javax.xml.crypto.Data;
 import java.io.*;
 import java.net.*;
 
 public class ActionListener implements Runnable {
 
+    private static ActionListener instance;
+
+    private ScoreboardClientController controller;
+
+    public synchronized static ActionListener getInstance() {
+        if (instance == null) {
+            instance = new ActionListener();
+        }
+        return instance;
+    }
+
     private DatagramSocket socket;
 
+    private ActionListener() {
 
+    }
 
     @Override
     public void run() {
@@ -23,14 +35,25 @@ public class ActionListener implements Runnable {
         try {
             socket = new DatagramSocket(GlobalConstants.APPLICATION_PORT);
             while (true) {
+
                 recvBuf = new byte[6400];
                 packet = new DatagramPacket(recvBuf, recvBuf.length);
                 socket.receive(packet);
-                //int byteCount = packet.getLength();
                 byteStream = new ByteArrayInputStream(recvBuf);
                 is = new ObjectInputStream(new BufferedInputStream(byteStream));
-                ScoreboardAction o = (ScoreboardAction) is.readObject();
-                System.out.println(o.toString());
+                ScoreboardAction action = (ScoreboardAction) is.readObject();
+                System.out.println(action.toString());
+
+                switch (action.getActionType()) {
+                    case SET_TEAM_NAMES:
+                        controller.setTeamNames(action);
+                        break;
+                    case INCREASE_SCORE:
+                        controller.setScore(action);
+                        break;
+                    default:
+                        break;
+                }
             }
         } catch (SocketException e) {
             e.printStackTrace();
@@ -39,5 +62,9 @@ public class ActionListener implements Runnable {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setController(ScoreboardClientController controller) {
+        this.controller = controller;
     }
 }
