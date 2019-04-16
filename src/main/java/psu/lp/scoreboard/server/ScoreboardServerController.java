@@ -2,6 +2,7 @@ package psu.lp.scoreboard.server;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import psu.lp.scoreboard.util.ScoreboardAction;
@@ -30,6 +31,9 @@ public class ScoreboardServerController {
     @FXML
     private Button encreaseTeam2ScoreButton;
 
+    @FXML
+    private Label scoreLabel;
+
     public ScoreboardServerController() {
 
     }
@@ -44,12 +48,18 @@ public class ScoreboardServerController {
 
     public void encreaseTeam1Score() {
         score1 += 1;
+        setServerScore();
         sendScore();
     }
 
     public void encreaseTeam2Score() {
         score2 += 1;
+        setServerScore();
         sendScore();
+    }
+
+    private void setServerScore() {
+        scoreLabel.setText(score1 + " : " + score2);
     }
 
     private void sendScore() {

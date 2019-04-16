@@ -43,7 +43,7 @@
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="0:0">
+            <Label fx:id="scoreLabel" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="0 : 0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -62,20 +62,42 @@
                      </HBox.margin></Button>
                </children>
             </HBox>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="Тайм:">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="Время:  45:00">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="Время:">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="Тайм: 1">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <font>
                   <Font size="15.0" />
                </font></Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Старт!">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Пауза">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Новый тайм">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></Button>
+                  <Button mnemonicParsing="false" text="Сбросить тайм">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></Button>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>
