@@ -16,23 +16,7 @@
                 <VBox style="-fx-background-color: #000;">
                     <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="280.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER">
                         <children>
-                            <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="125.0" text="0" textAlignment="CENTER" textFill="RED">
-                                <font>
-                                    <Font size="72.0" />
-                                </font>
-                        <effect>
-                           <Glow level="1.0" />
-                        </effect>
-                            </Label>
-                            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="30.0" text=":" textAlignment="CENTER" textFill="RED">
-                                <font>
-                                    <Font size="72.0" />
-                                </font>
-                        <effect>
-                           <Glow level="1.0" />
-                        </effect>
-                            </Label>
-                            <Label layoutX="234.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="125.0" text="0" textAlignment="CENTER" textFill="RED">
+                            <Label fx:id="timerLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="280.0" text="45:00" textAlignment="CENTER" textFill="RED">
                                 <font>
                                     <Font size="72.0" />
                                 </font>
@@ -42,7 +26,7 @@
                             </Label>
                         </children>
                     </HBox>
-               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="280.0" text="Период: 1" textAlignment="CENTER" textFill="WHITE">
+               <Label fx:id="halfLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="280.0" text="Тайм: 1" textAlignment="CENTER" textFill="WHITE">
                   <font>
                      <Font size="18.0" />
                   </font>
@@ -55,7 +39,7 @@
             <left>
                 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="160.0" style="-fx-background-color: #720404;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="team1ScoreLabel" alignment="CENTER" prefHeight="160.0" prefWidth="160.0" text="40" textFill="WHITE">
+                  <Label fx:id="team1ScoreLabel" alignment="CENTER" prefHeight="160.0" prefWidth="160.0" text="0" textFill="WHITE">
                      <effect>
                         <Glow level="1.0" />
                      </effect>
@@ -68,7 +52,7 @@
             <right>
                 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="160.0" style="-fx-background-color: #052468;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="team2ScoreLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="160.0" text="50" textFill="WHITE">
+                  <Label fx:id="team2ScoreLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="160.0" text="0" textFill="WHITE">
                      <effect>
                         <Glow level="1.0" />
                      </effect>
@@ -80,7 +64,7 @@
             <top>
                 <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER">
                     <children>
-                        <Label fx:id="teamNamesLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" text="1... vs 2..." textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="teamNamesLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="600.0" text="Команда 1 vs Команда 2" textAlignment="CENTER" textFill="WHITE">
                             <font>
                                 <Font size="24.0" />
                             </font>

@@ -51,6 +51,18 @@ public class ActionListener implements Runnable {
                     case INCREASE_SCORE:
                         controller.setScore(action);
                         break;
+                    case TIMER_START:
+                        controller.setTime(action);
+                        break;
+                    case TIMER_PAUSE:
+                        controller.stopTime();
+                        break;
+                    case NEW_HALF:
+                        controller.setHalf(action);
+                        break;
+                    case RESET_HALF:
+                        controller.resetHalfAndTime();
+                        break;
                     default:
                         break;
                 }

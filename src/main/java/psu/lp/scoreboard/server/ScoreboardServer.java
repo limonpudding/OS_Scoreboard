@@ -28,11 +28,6 @@ public class ScoreboardServer extends Application {
 
 
     public static void main(String[] args) {
-//        ScoreboardAction action = new ScoreboardAction();
-//        action.setActionType(ScoreboardActionType.INCREASE_SCORE);
-//        action.setIntValue1(10);
-//        ActionSender.getInstance().sendScoreboardAction(action);
-        //ActionListener actionListener = new ActionListener()
         launch(args);
     }
 }

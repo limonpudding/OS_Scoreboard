@@ -1,11 +1,10 @@
 package psu.lp.scoreboard.util;
 
 public enum ScoreboardActionType {
-    RESET_SCORETABLE("Сбросить табло."),
-    RESET_TIME("Сбросить время."),
+    RESET_HALF("Сбросить тайм и время."),
     TIMER_START("Запустить таймер."),
     TIMER_PAUSE("Поставить таймер на паузу."),
-    TIMER_STOP("Остановить таймер."),
+    NEW_HALF("Новый тайм."),
     SET_TEAM_NAMES("Установить имена командам."),
     INCREASE_SCORE("Увеличить счёт.");
 

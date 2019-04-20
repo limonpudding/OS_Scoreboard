@@ -36,9 +36,13 @@
                <VBox.margin>
                   <Insets left="195.0" />
                </VBox.margin></Button>
+            <Button fx:id="resetScoreButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#resetScore" prefWidth="210.0" text="Сбросить счёт">
+               <VBox.margin>
+                  <Insets left="195.0" top="5.0" />
+               </VBox.margin></Button>
             <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="Текущий счёт">
                <VBox.margin>
-                  <Insets top="30.0" />
+                  <Insets top="10.0" />
                </VBox.margin>
                <font>
                   <Font size="15.0" />
@@ -62,37 +66,37 @@
                      </HBox.margin></Button>
                </children>
             </HBox>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="Время:  45:00">
+            <Label fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="45:00">
                <VBox.margin>
-                  <Insets top="30.0" />
+                  <Insets top="10.0" />
                </VBox.margin>
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="Тайм: 1">
+            <Label fx:id="halfLabel" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0" text="Тайм: 1">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" text="Старт!">
+                  <Button fx:id="startTimerButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startTimer" prefWidth="70.0" text="Старт!">
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="pauseTimerButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#pauseTimer" prefWidth="70.0" text="Пауза">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Пауза">
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" text="Новый тайм">
+                  <Button fx:id="nextHalfButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newHalf" prefWidth="120.0" text="Новый тайм">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin></Button>
-                  <Button mnemonicParsing="false" text="Сбросить тайм">
+                  <Button fx:id="clearHalfButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clearHalf" prefWidth="125.0" text="Сбросить тайм">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin></Button>

@@ -1,13 +1,13 @@
 package psu.lp.scoreboard.server;
 
 import psu.lp.scoreboard.util.GlobalConstants;
+import psu.lp.scoreboard.util.LanUtils;
 import psu.lp.scoreboard.util.ScoreboardAction;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.*;
-import java.util.Enumeration;
 
 public class ActionSender {
 
@@ -38,19 +38,9 @@ public class ActionSender {
 
     private void initIP() {
         try {
-            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
-            while (interfaces.hasMoreElements()) {
-                NetworkInterface networkInterface = interfaces.nextElement();
-                if (networkInterface.isLoopback())
-                    continue;    // Do not want to use the loopback interface.
-                for (InterfaceAddress interfaceAddress : networkInterface.getInterfaceAddresses()) {
-                    InetAddress broadcastAddress = interfaceAddress.getBroadcast();
-                    if (broadcastAddress == null)
-                        continue;
-                    broadcast = broadcastAddress;
-                    System.out.println("Broadcast is " + broadcast.toString());
-                    return;
-                }
+            broadcast = LanUtils.getBroadcast();
+            if (broadcast == null) {
+                throw new SocketException();
             }
         } catch (SocketException ex) {
             ex.printStackTrace();
