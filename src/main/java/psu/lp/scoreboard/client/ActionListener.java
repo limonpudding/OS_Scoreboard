@@ -1,6 +1,7 @@
 package psu.lp.scoreboard.client;
 
 import psu.lp.scoreboard.util.GlobalConstants;
+import psu.lp.scoreboard.util.LanUtils;
 import psu.lp.scoreboard.util.ScoreboardAction;
 
 import java.io.*;
@@ -78,5 +79,14 @@ public class ActionListener implements Runnable {
 
     public void setController(ScoreboardClientController controller) {
         this.controller = controller;
+    }
+
+    public void getAllInfo() throws IOException, InterruptedException {
+        //Thread.sleep(3000);
+        byte[] buf = GlobalConstants.GET_SERVER_INFO.getBytes();
+        DatagramSocket socketUDP = new DatagramSocket();
+        InetAddress address = LanUtils.getBroadcast();
+        DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 6000);
+        socketUDP.send(packet);
     }
 }

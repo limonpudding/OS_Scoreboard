@@ -12,14 +12,13 @@ public class SBTimerTask extends TimerTask {
     private Label timerLabel;
 
     public SBTimerTask(int minute, int second, Label timerLabel) {
-        this.minute = minute;
-        this.second = second;
-        this.timerLabel = timerLabel;
+            this.minute = minute;
+            this.second = second;
+            this.timerLabel = timerLabel;
     }
 
     @Override
     public void run() {
-
         Platform.runLater(() -> {
             if (second > 0) {
                 second--;

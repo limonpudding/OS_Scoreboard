@@ -40,7 +40,7 @@ public class ActionSender {
         try {
             broadcast = LanUtils.getBroadcast();
             if (broadcast == null) {
-                throw new SocketException();
+                throw new SocketException("Вы не подключены к локальной сети!");
             }
         } catch (SocketException ex) {
             ex.printStackTrace();

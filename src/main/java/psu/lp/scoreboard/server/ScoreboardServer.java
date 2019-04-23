@@ -12,18 +12,15 @@ import psu.lp.scoreboard.util.ScoreboardActionType;
 
 public class ScoreboardServer extends Application {
 
-    public static Stage scoreboardServerStage;
-
     @Override
     public void start(Stage stage) throws Exception {
         Platform.setImplicitExit(false);
-        scoreboardServerStage = stage;
         Parent scoreboardForm = FXMLLoader.load(getClass().getResource("/layouts/ScoreboardServerTemplate.fxml"));
-        scoreboardServerStage.setTitle("Табло сервер");
-        scoreboardServerStage.setScene(new Scene(scoreboardForm, 600, 400));
-        scoreboardServerStage.setOnCloseRequest(event -> System.exit(0));
-        scoreboardServerStage.setResizable(true);
-        scoreboardServerStage.show();
+        stage.setTitle("Табло сервер");
+        stage.setScene(new Scene(scoreboardForm, 600, 400));
+        stage.setOnCloseRequest(event -> System.exit(0));
+        stage.setResizable(true);
+        stage.show();
     }
 
 

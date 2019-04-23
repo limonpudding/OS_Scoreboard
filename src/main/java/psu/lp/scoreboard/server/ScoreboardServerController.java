@@ -1,14 +1,21 @@
 package psu.lp.scoreboard.server;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import psu.lp.scoreboard.util.SBTimerTask;
 import psu.lp.scoreboard.util.ScoreboardAction;
 import psu.lp.scoreboard.util.ScoreboardActionType;
 
+import java.io.IOException;
 import java.net.SocketException;
 import java.util.Timer;
 
@@ -61,17 +68,37 @@ public class ScoreboardServerController {
     @FXML
     private Button clearHalfButton;
 
+    @FXML
+    public Label goal1Label;
+
+    @FXML
+    public Label goal2Label;
+
+    @FXML
+    public Label goal3Label;
+
+    @FXML
+    public Label goal4Label;
+
     public ScoreboardServerController() {
         score1 = 0;
         score2 = 0;
         half = 1;
         timerMinute = 45;
         timerSecond = 0;
+//
+//        goal1Label.setText("");
+//        goal2Label.setText("");
+//        goal3Label.setText("");
+//        goal4Label.setText("");
+
         try {
-            Thread thread = new Thread(new NewClientListener(this));
+            NewClientListener.getInstance().setController(this);
         } catch (SocketException e) {
             e.printStackTrace();
             System.out.println("Не удалось подключить модуль работы с новыми клиентами!");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
@@ -83,34 +110,44 @@ public class ScoreboardServerController {
         ActionSender.getInstance().sendScoreboardAction(action);
     }
 
-    public void encreaseTeam1Score() {
+    public void encreaseTeam1Score() throws IOException {
         score1 += 1;
-        setServerScore();
-        sendScore();
+        updateScore(team1TextField.getText());
     }
 
-    public void encreaseTeam2Score() {
+    public void encreaseTeam2Score() throws IOException {
         score2 += 1;
+        updateScore(team2TextField.getText());
+    }
+
+    private void updateScore(String team) throws IOException {
         setServerScore();
-        sendScore();
+        NewGoal newGoal = new NewGoal();
+        String goal = newGoal.display();
+        String goalInfo = String.format("[%02d", timerMinute) + ":" + String.format("%02d", timerSecond) + "] " + team + ": " + goal;
+        updateGoalsList(goalInfo);
+        sendScore(goalInfo);
     }
 
     public void resetScore() {
         score1 = 0;
         score2 = 0;
         setServerScore();
-        sendScore();
+        sendScore(null);
     }
 
     private void setServerScore() {
         scoreLabel.setText(score1 + " : " + score2);
     }
 
-    private void sendScore() {
+    private void sendScore(String goalInfo) {
         ScoreboardAction action = new ScoreboardAction();
         action.setActionType(ScoreboardActionType.INCREASE_SCORE);
         action.setIntValue1(score1);
         action.setIntValue2(score2);
+        if (goalInfo != null) {
+            action.setStringValue1(goalInfo);
+        }
         ActionSender.getInstance().sendScoreboardAction(action);
     }
 
@@ -183,15 +220,27 @@ public class ScoreboardServerController {
         timerSecond = Integer.valueOf(timerLabel.getText().substring(3, 5));
     }
 
-    public void sendAll() {
+    public synchronized void sendAll() throws InterruptedException {
+        this.wait(2000);
         selectTeamNames();
-        sendScore();
+        sendScore(null);
         if (timer != null) {
             sendStartTimer();
         } else {
             sendStartTimer();
             sendPauseTimer();
         }
+        sendScore(goal4Label.getText());
+        sendScore(goal3Label.getText());
+        sendScore(goal2Label.getText());
+        sendScore(goal1Label.getText());
         sendHalf();
+    }
+
+    private void updateGoalsList(String goalInfo) {
+        goal4Label.setText(goal3Label.getText());
+        goal3Label.setText(goal2Label.getText());
+        goal2Label.setText(goal1Label.getText());
+        goal1Label.setText(goalInfo);
     }
 }

@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psu.lp.scoreboard.client.ScoreboardClientController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psu.lp.scoreboard.client.ScoreboardClientController">
     <children>
-        <BorderPane layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+        <BorderPane layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="600.0">
             <center>
                 <VBox style="-fx-background-color: #000;">
                     <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="280.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER">
@@ -76,7 +76,42 @@
                 </Pane>
             </top>
          <bottom>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="140.0" prefWidth="200.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label fx:id="goal1Label" alignment="CENTER" layoutY="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="600.0" text="" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <effect>
+                                <Glow level="1.0" />
+                            </effect>
+                        </Label>
+                        <Label fx:id="goal2Label" alignment="CENTER" layoutY="42.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="600.0" text="" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <effect>
+                                <Glow level="1.0" />
+                            </effect>
+                        </Label>
+                        <Label fx:id="goal3Label" alignment="CENTER" layoutY="74.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="600.0" text="" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <effect>
+                                <Glow level="1.0" />
+                            </effect>
+                        </Label>
+                        <Label fx:id="goal4Label" alignment="CENTER" layoutY="106.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="600.0" text="" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <effect>
+                                <Glow level="1.0" />
+                            </effect>
+                        </Label>
+                    </children>
+            </Pane>
          </bottom>
         </BorderPane>
     </children>

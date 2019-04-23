@@ -10,18 +10,16 @@ import javafx.stage.Stage;
 import java.net.SocketException;
 
 public class ScoreboardClient extends Application {
-    public static Stage scoreboardStage;
 
     @Override
     public void start(Stage stage) throws Exception {
         Platform.setImplicitExit(false);
-        scoreboardStage = stage;
         Parent scoreboardForm = FXMLLoader.load(getClass().getResource("/layouts/ScoreboardClientTemplate.fxml"));
-        scoreboardStage.setTitle("Табло");
-        scoreboardStage.setScene(new Scene(scoreboardForm, 600, 400));
-        scoreboardStage.setOnCloseRequest(event -> System.exit(0));
-        scoreboardStage.setResizable(true);
-        scoreboardStage.show();
+        stage.setTitle("Табло");
+        stage.setScene(new Scene(scoreboardForm, 600, 338));
+        stage.setOnCloseRequest(event -> System.exit(0));
+        stage.setResizable(true);
+        stage.show();
     }
 
 
@@ -29,6 +27,5 @@ public class ScoreboardClient extends Application {
         Thread actionListener = new Thread(ActionListener.getInstance());
         actionListener.start();
         launch(args);
-
     }
 }

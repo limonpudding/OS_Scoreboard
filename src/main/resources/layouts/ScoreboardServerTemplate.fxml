@@ -15,7 +15,7 @@
          <children>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="600.0">
                <children>
-                  <TextField fx:id="team1TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="280.0">
+                  <TextField fx:id="team1TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#selectTeamNames" prefHeight="37.0" prefWidth="280.0">
                      <font>
                         <Font size="15.0" />
                      </font></TextField>
@@ -23,7 +23,7 @@
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <TextField fx:id="team2TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="280.0">
+                  <TextField fx:id="team2TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#selectTeamNames" prefHeight="37.0" prefWidth="280.0">
                      <font>
                         <Font size="15.0" />
                      </font></TextField>
@@ -102,6 +102,17 @@
                      </HBox.margin></Button>
                </children>
             </HBox>
+            <Label alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" text="Последние забитые голы:" underline="true">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Label fx:id="goal1Label" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" style="-fx-background-color: #ddd;" text="" />
+            <Label fx:id="goal2Label" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" text="" />
+            <Label fx:id="goal3Label" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" style="-fx-background-color: #ddd;" text="" />
+            <Label fx:id="goal4Label" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" text="" />
          </children>
       </VBox>
    </children>
