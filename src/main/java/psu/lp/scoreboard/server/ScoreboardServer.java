@@ -6,9 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import psu.lp.scoreboard.client.ActionListener;
-import psu.lp.scoreboard.util.ScoreboardAction;
-import psu.lp.scoreboard.util.ScoreboardActionType;
 
 public class ScoreboardServer extends Application {
 
@@ -22,7 +19,6 @@ public class ScoreboardServer extends Application {
         stage.setResizable(true);
         stage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);

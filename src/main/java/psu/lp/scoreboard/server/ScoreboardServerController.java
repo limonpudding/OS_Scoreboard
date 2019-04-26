@@ -1,22 +1,15 @@
 package psu.lp.scoreboard.server;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import psu.lp.scoreboard.util.SBTimerTask;
 import psu.lp.scoreboard.util.ScoreboardAction;
 import psu.lp.scoreboard.util.ScoreboardActionType;
 
 import java.io.IOException;
-import java.net.SocketException;
 import java.util.Timer;
 
 public class ScoreboardServerController {
@@ -86,19 +79,12 @@ public class ScoreboardServerController {
         half = 1;
         timerMinute = 45;
         timerSecond = 0;
-//
-//        goal1Label.setText("");
-//        goal2Label.setText("");
-//        goal3Label.setText("");
-//        goal4Label.setText("");
 
         try {
             NewClientListener.getInstance().setController(this);
-        } catch (SocketException e) {
-            e.printStackTrace();
-            System.out.println("Не удалось подключить модуль работы с новыми клиентами!");
         } catch (InterruptedException e) {
             e.printStackTrace();
+            System.out.println("Не удалось подключить модуль работы с новыми клиентами!");
         }
     }
 
@@ -178,6 +164,7 @@ public class ScoreboardServerController {
     private void sendPauseTimer() {
         ScoreboardAction action = new ScoreboardAction();
         action.setActionType(ScoreboardActionType.TIMER_PAUSE);
+        action.setStringValue1(timerLabel.getText());
         ActionSender.getInstance().sendScoreboardAction(action);
     }
 
@@ -209,7 +196,9 @@ public class ScoreboardServerController {
     }
 
     private void resetTime() {
-        timer.cancel();
+        if (timer != null) {
+            timer.cancel();
+        }
         timerLabel.setText("45:00");
         timerMinute = 45;
         timerSecond = 0;
@@ -220,21 +209,19 @@ public class ScoreboardServerController {
         timerSecond = Integer.valueOf(timerLabel.getText().substring(3, 5));
     }
 
-    public synchronized void sendAll() throws InterruptedException {
-        this.wait(2000);
+    synchronized void sendAll() {
         selectTeamNames();
         sendScore(null);
-        if (timer != null) {
-            sendStartTimer();
-        } else {
-            sendStartTimer();
-            sendPauseTimer();
-        }
         sendScore(goal4Label.getText());
         sendScore(goal3Label.getText());
         sendScore(goal2Label.getText());
         sendScore(goal1Label.getText());
         sendHalf();
+        if (timer != null) {
+            sendStartTimer();
+        } else {
+            sendPauseTimer();
+        }
     }
 
     private void updateGoalsList(String goalInfo) {

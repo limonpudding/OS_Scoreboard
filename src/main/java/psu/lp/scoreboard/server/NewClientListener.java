@@ -9,8 +9,10 @@ public class NewClientListener implements Runnable {
 
     private static NewClientListener instance;
     private static Thread listener;
+    private DatagramSocket socket;
+    private ScoreboardServerController controller;
 
-    public synchronized static NewClientListener getInstance() throws SocketException, InterruptedException {
+    synchronized static NewClientListener getInstance() throws InterruptedException {
         if (instance == null) {
             Thread.sleep(3000);
             instance = new NewClientListener();
@@ -20,23 +22,15 @@ public class NewClientListener implements Runnable {
         return instance;
     }
 
-
-    private DatagramSocket socket;
-    private String localServerIP;
-    private ScoreboardServerController controller;
-
-    private NewClientListener() throws SocketException {
+    private NewClientListener() {
         try {
             socket = new DatagramSocket(6000);
-            socket.connect(InetAddress.getByName("8.8.8.8"), 6000); // Немного костыльный способ получения адреса в локальной сети
-            localServerIP = socket.getLocalAddress().getHostAddress();
-            socket.disconnect();
-        } catch (UnknownHostException ex) {
-            ex.printStackTrace();
+        } catch (SocketException e) {
+            e.printStackTrace();
         }
     }
 
-    public void setController(ScoreboardServerController controller) {
+    void setController(ScoreboardServerController controller) {
         this.controller = controller;
     }
 
@@ -59,8 +53,6 @@ public class NewClientListener implements Runnable {
             }
         } catch (IOException ex) {
             ex.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         } finally {
             socket.close();
         }

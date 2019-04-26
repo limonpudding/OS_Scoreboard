@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.*;
 
-public class ActionSender {
+class ActionSender {
 
     private static ActionSender instance;
 
@@ -17,7 +17,7 @@ public class ActionSender {
 
     private static DatagramSocket socket;
 
-    public synchronized static ActionSender getInstance() {
+    synchronized static ActionSender getInstance() {
         if (instance == null) {
             instance = new ActionSender();
         }
@@ -35,7 +35,6 @@ public class ActionSender {
         }
     }
 
-
     private void initIP() {
         try {
             broadcast = LanUtils.getBroadcast();
@@ -48,7 +47,7 @@ public class ActionSender {
         }
     }
 
-    public void sendScoreboardAction(ScoreboardAction action) {
+    void sendScoreboardAction(ScoreboardAction action) {
         try {
             final ByteArrayOutputStream baos = new ByteArrayOutputStream(6400);
             final ObjectOutputStream oos;

@@ -13,7 +13,7 @@ public class ActionListener implements Runnable {
 
     private ScoreboardClientController controller;
 
-    public synchronized static ActionListener getInstance() {
+    synchronized static ActionListener getInstance() {
         if (instance == null) {
             instance = new ActionListener();
         }
@@ -30,8 +30,8 @@ public class ActionListener implements Runnable {
     public void run() {
         byte[] recvBuf;
         DatagramPacket packet;
-        ByteArrayInputStream byteStream; // = new ByteArrayInputStream(recvBuf);
-        ObjectInputStream is;// = new ObjectInputStream(new BufferedInputStream(byteStream));
+        ByteArrayInputStream byteStream;
+        ObjectInputStream is;
 
         try {
             socket = new DatagramSocket(GlobalConstants.APPLICATION_PORT);
@@ -43,8 +43,7 @@ public class ActionListener implements Runnable {
                 byteStream = new ByteArrayInputStream(recvBuf);
                 is = new ObjectInputStream(new BufferedInputStream(byteStream));
                 ScoreboardAction action = (ScoreboardAction) is.readObject();
-                System.out.println(action.toString());
-
+                System.out.println(action.getActionType().getInfo());
                 switch (action.getActionType()) {
                     case SET_TEAM_NAMES:
                         controller.setTeamNames(action);
@@ -56,7 +55,7 @@ public class ActionListener implements Runnable {
                         controller.setTime(action);
                         break;
                     case TIMER_PAUSE:
-                        controller.stopTime();
+                        controller.stopTime(action);
                         break;
                     case NEW_HALF:
                         controller.setHalf(action);
@@ -68,21 +67,16 @@ public class ActionListener implements Runnable {
                         break;
                 }
             }
-        } catch (SocketException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public void setController(ScoreboardClientController controller) {
+    void setController(ScoreboardClientController controller) {
         this.controller = controller;
     }
 
-    public void getAllInfo() throws IOException, InterruptedException {
-        //Thread.sleep(3000);
+    void getAllInfo() throws IOException {
         byte[] buf = GlobalConstants.GET_SERVER_INFO.getBytes();
         DatagramSocket socketUDP = new DatagramSocket();
         InetAddress address = LanUtils.getBroadcast();

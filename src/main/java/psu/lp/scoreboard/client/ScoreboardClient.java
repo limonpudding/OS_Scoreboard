@@ -7,8 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.net.SocketException;
-
 public class ScoreboardClient extends Application {
 
     @Override
@@ -23,7 +21,7 @@ public class ScoreboardClient extends Application {
     }
 
 
-    public static void main(String[] args) throws SocketException {
+    public static void main(String[] args) {
         Thread actionListener = new Thread(ActionListener.getInstance());
         actionListener.start();
         launch(args);
